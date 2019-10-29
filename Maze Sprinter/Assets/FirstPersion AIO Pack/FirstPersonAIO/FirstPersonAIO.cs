@@ -339,7 +339,7 @@ public class BETA_SETTINGS{
             playerCamera.transform.localRotation = Quaternion.Euler(-followAngles.x + originalRotation.x,0,0);
             transform.localRotation =  Quaternion.Euler(0, followAngles.y+originalRotation.y, 0);
         }
-    
+		
         #endregion
 
         #region Movement Settings - Update
@@ -353,6 +353,7 @@ public class BETA_SETTINGS{
         #region BETA_SETTINGS - Update
 
         #endregion
+		
     }
 
     private void FixedUpdate()
@@ -712,6 +713,13 @@ public class BETA_SETTINGS{
         playerCamera.transform.localPosition = cameraStartingPosition;
     }
 
+	void OnTriggerEnter(Collider other) 
+    {
+        if (other.gameObject.CompareTag ("Pickup"))
+        {
+            other.gameObject.SetActive (false);
+        }
+    }
 }
 #if UNITY_EDITOR
     [CustomEditor(typeof(FirstPersonAIO)),InitializeOnLoadAttribute]
