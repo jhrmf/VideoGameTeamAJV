@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int startingHealth = 100;
+    public int startingHealth = 1000;
     public int currentHealth;
+    public Slider healthBar;
 
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
@@ -17,6 +18,11 @@ public class PlayerHealth : MonoBehaviour
     FirstPersonAIO playerController;
     bool isDead;
     bool damaged;
+
+    void OnTriggerEnter(Collider other)
+    {
+        healthBar.value -= 10;
+    }
 
     void Awake()
     {

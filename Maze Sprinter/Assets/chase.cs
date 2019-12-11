@@ -6,7 +6,7 @@ public class chase : MonoBehaviour
 {
 
     public Transform player;
-    static Animator anim;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class chase : MonoBehaviour
             anim.SetBool("isIdle", false);
             if (direction.magnitude > 5)
             {
-                this.transform.Translate(0, 0, 0.02f);
+                this.transform.Translate(0, 0, 0.01f);
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isAttacking", false);
             }
